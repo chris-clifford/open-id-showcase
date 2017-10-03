@@ -1,0 +1,19 @@
+<h2>Create a new Account</h2>
+<%= form_with scope: :session, local: true do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+<a href="<%= @code_request_uri %>" >Continue with Acceptto</a>

@@ -1,2 +1,9 @@
 <h1>Session#index</h1>
-<p>Find me in app/views/session/index.html.erb</p>
+<p>This is the login</p>
+<a href="/login" class="button">Login</a>
+
+<% if @header %>
+  <p> Header: <%= @header %> </p>
+  <p> Payload: <%= @payload %> </p>
+  <p> Signature: <%= @signature %> </p>
+<% end %>
