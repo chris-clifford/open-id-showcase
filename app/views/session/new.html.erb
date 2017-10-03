@@ -1,19 +1,28 @@
-<h2>Create a new Account</h2>
-<%= form_with scope: :session, local: true do |form| %>
-  <p>
-    <%= form.label :username %><br>
-    <%= form.text_field :username %>
-  </p>
+<h1 class="display-3">Create a new Account</h1>
+<div class="row">
+  <div class="col md-6">
+    <%= form_with scope: :session, local: true do |form| %>
+    <p>
+      <%= form.label :username %><br>
+      <%= form.text_field :username, class: "form-control" %>
+    </p>
 
-  <p>
-    <%= form.label :password %><br>
-    <%= form.text_field :password %>
-  </p>
+    <p>
+      <%= form.label :password %><br>
+      <%= form.text_field :password, class: "form-control" %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+    <p>
+      <%= form.label :confirm_password %><br>
+      <%= form.text_field :confirm_password, class: "form-control" %>
+    </p>
 
-
-<a href="<%= @code_request_uri %>" >Continue with Acceptto</a>
+    <p>
+      <%= form.submit "Create New User", class: "btn btn-primary" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="col self-align-center">
+    <a href="<%= @code_request_uri %>" class="btn btn-success" >Sign In with Acceptto</a>
+  </div>
+</div>

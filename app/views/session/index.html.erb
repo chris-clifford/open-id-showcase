@@ -1,9 +1,10 @@
-<h1>Session#index</h1>
-<p>This is the login</p>
-<a href="/login" class="button">Login</a>
+<h1 class="display-3 text-center">Welcome</h1>
+
+<div class="lign-self-center">
+  <a href="/login" class="btn btn-primary">Login</a>
+</div>
 
 <% if @header %>
   <p> Header: <%= @header %> </p>
   <p> Payload: <%= @payload %> </p>
-  <p> Signature: <%= @signature %> </p>
 <% end %>
