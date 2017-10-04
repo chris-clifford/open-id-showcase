@@ -1,0 +1,10 @@
+production:
+  base_url: http://localhost:3002
+  client_id: 584e229b9bfa46a2b79d055d907eb1d94f38c4a31b8d1f57aef32bb21091272c
+  client_secret:  ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
+  redirect_url: http://localhost:3000/
+development:
+  base_url: http://localhost:3002
+  client_id: 584e229b9bfa46a2b79d055d907eb1d94f38c4a31b8d1f57aef32bb21091272c
+  clinent_secret:  ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
+  redirect_url: http://localhost:3000/

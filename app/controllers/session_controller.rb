@@ -33,12 +33,21 @@ class SessionController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = "You've successfully signed up!"
+      session[:user_id] = @user.id
+      redirect_to "/"
+    else
+      flash[:alert] = "There was a problem signing up."
+      redirect_to '/signup'
+    end
     token = {header: {}, payload: {'iss': 'www.acceptto.com', sub: params[:email], exp: Time.now.to_i, iat: Time.now.to_i}}
     @payload = token[:payload].with_indifferent_access
     render :index
   end
 
-  def delete
+  def destroy
     reset_session
     redirect_to root_path
   end
@@ -47,5 +56,9 @@ class SessionController < ApplicationController
 
   def code_params
     params.permit(:code, :state, :username, :email, :password)
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 end
