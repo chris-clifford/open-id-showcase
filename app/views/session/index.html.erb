@@ -1,10 +1,29 @@
-<h1 class="display-3 text-center">Welcome</h1>
-
-<div class="lign-self-center">
-  <a href="/login" class="btn btn-primary">Login</a>
+<div class="jumbotron mb-0 d-flex align-items-center flex-column justify-content-center min-10">
+  <div class="container text-center">
+    <h1 class="display-3">Welcome, <%= @payload["sub"] %> </h1>
+    <p class="lead">You have been authenticated by Acceptto</p>
+    <div class="text-center">
+      <a href="/login" class="btn btn-outline-secondary btn-lg">Sign Out</a>
+    </div>
+  </div>
 </div>
 
-<% if @header %>
-  <p> Header: <%= @header %> </p>
-  <p> Payload: <%= @payload %> </p>
+<% if @payload %>
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+        <div id="login-form" class="card mt-3">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3 class="text-center">ID Token</h3>
+                </div>
+                <hr>
+                <p><span class="font-weight-bold">User ID:</span> <%= @payload["sub"] %> </p>
+                <p><span class="font-weight-bold">Issued By:</span> <%= @payload["iss"] %> </p>
+                <p><span class="font-weight-bold">Time Issued:</span> <%= Time.at(@payload["iat"]).strftime("%H:%M:%S") %> </p>
+                <p><span class="font-weight-bold">Expires At:</span> <%= Time.at(@payload["exp"]).strftime("%H:%M:%S") %> </p>
+
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>

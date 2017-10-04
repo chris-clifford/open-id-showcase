@@ -1,28 +1,50 @@
-<h1 class="display-3">Create a new Account</h1>
-<div class="row">
-  <div class="col md-6">
-    <%= form_with scope: :session, local: true do |form| %>
-    <p>
-      <%= form.label :username %><br>
-      <%= form.text_field :username, class: "form-control" %>
-    </p>
+  <div class="container-fluid py-3">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
+            <div id="login-form" class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center">Welcome to MyApp</h3>
+                    </div>
+                    <hr>
+                    <%= form_with scope: :session, local: true do |form| %>
+                    <div class="form-group">
+                      <%= form.label :username, class: "control-label mb-1" %><br>
+                      <%= form.text_field :username, class: "form-control" %>
+                    </div>
 
-    <p>
-      <%= form.label :password %><br>
-      <%= form.text_field :password, class: "form-control" %>
-    </p>
+                    <div class="form-group">
+                      <%= form.label :email, class: "control-label mb-1" %><br>
+                      <%= form.text_field :email, class: "form-control" %>
+                    </div>
 
-    <p>
-      <%= form.label :confirm_password %><br>
-      <%= form.text_field :confirm_password, class: "form-control" %>
-    </p>
+                    <div class="form-group">
+                      <%= form.label :password, class: "control-label mb-1" %><br>
+                      <%= form.text_field :password, class: "form-control" %>
+                    </div>
 
-    <p>
-      <%= form.submit "Create New User", class: "btn btn-primary" %>
-    </p>
-    <% end %>
-  </div>
-  <div class="col self-align-center">
-    <a href="<%= @code_request_uri %>" class="btn btn-success" >Sign In with Acceptto</a>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :confirm_password, class: "control-label mb-1" %><br>
+                      <%= form.text_field :confirm_password, class: "form-control" %>
+                    </div>
+
+                    <div>
+                      <%= form.submit "Create New Account", class: "btn btn-outline-danger btn-lg btn-block" %>
+                    </div>
+                    <% end %>
+                    <div class="text-center mt-3">
+                      <p>OR</p>
+                    </div>
+                    <div class="login-acceptto">
+                      <a href="<%= @code_request_uri %>" class="btn btn-outline-success btn-lg btn-block" >
+                        <span id="payment-button-amount">Sign In with Acceptto</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<section class="container-fluid flex-grow">
+  
+</section>
