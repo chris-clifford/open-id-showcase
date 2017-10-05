@@ -7,7 +7,7 @@
                         <h3 class="text-center">Welcome to MyApp</h3>
                     </div>
                     <hr>
-                    <%= form_with scope: :session, local: true do |form| %>
+                    <%= form_with scope: :user, local: true do |form| %>
                     <div class="form-group">
                       <%= form.label :username, class: "control-label mb-1" %><br>
                       <%= form.text_field :username, class: "form-control" %>
@@ -24,8 +24,8 @@
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :confirm_password, class: "control-label mb-1" %><br>
-                      <%= form.password_field :confirm_password, class: "form-control" %>
+                      <%= form.label :password_confirmation, class: "control-label mb-1" %><br>
+                      <%= form.password_field :password_confirmation, class: "form-control" %>
                     </div>
 
                     <div>

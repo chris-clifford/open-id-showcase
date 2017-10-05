@@ -27,5 +27,7 @@ module OpenidShowcase
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.url_parameters = config_for(:url_parameters)
   end
 end
