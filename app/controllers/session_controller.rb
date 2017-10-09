@@ -2,17 +2,16 @@ class SessionController < ApplicationController
   include SessionHelper
   def index
     if params[:code] && params[:state] == session[:state]
-      auth_request_uri = get_auth_request_url(params[:code])
-      request = HTTParty.post(auth_request_uri)
+      request = HTTParty.post(get_auth_request_url(params[:code]))
 
-      session[:id_token] = request['id_token'] if request['id_token']
-
-      if session[:id_token]
-        split_token = session[:id_token].split('.')
-        @payload = JSON.parse(Base64.decode64(split_token[1]))
+      if request['id_token']
+        verified_token = verify_token(request['id_token'])
+        @payload = verified_token[0]
+        session[:id_token] = request['id_token']
+        @user = User.find_or_create_by(email: @payload["sub"])
+      else
+        redirect_to login_path, alert: 'There was an error getting your login information from Acceptto'
       end
-
-      @user = User.find_or_create_by(email: @payload["sub"])
 
     elsif params[:code]
       redirect_to login_path, alert: 'State value does not match'

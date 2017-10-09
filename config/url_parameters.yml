@@ -1,10 +1,20 @@
 production:
   base_url: http://localhost:3002
   client_id: 584e229b9bfa46a2b79d055d907eb1d94f38c4a31b8d1f57aef32bb21091272c
-  client_secret:  ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
+  client_secret: ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
   redirect_url: http://localhost:3000/
 development:
   base_url: http://localhost:3002
   client_id: 584e229b9bfa46a2b79d055d907eb1d94f38c4a31b8d1f57aef32bb21091272c
-  clinent_secret:  ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
+  client_secret: ef3055aa00eb757085b3d18894dd760dc56c927839a6a0a8f125c9c979f4f2cd
   redirect_url: http://localhost:3000/
+  public_key: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA38HEtPNU3d8FbRcq4ND/
+    RAAhkFxOvC0MB+wKtIf/BcgIpHilKQigbqZGbMNSV5XrHrDsjGCry7gYppdEddvY
+    9wLN6YZqUGLMseQzAbYu4VNOT/795RbyBb9Pa9qunoo/3CdHiuupDf1mVXff+aqG
+    pVlxdvzT+Jkpb4jjWQ8Q9z5FVKFqCqHMPFpJhitt6gkQxsTf+BsPFQHunxBjRW65
+    n25HL6jUM645iEwAb8vYZ/AA7fUw9ABbhV0PLqMG1NcjINWWZlmZi+tKHZa0D4iI
+    V9yQKvOS2imE9JcoeHr2ML5W9/MHVgzUrNHA46rdNrtYijDpYjQ6FvLkOvIn5Z/0
+    6wIDAQAB
+    -----END PUBLIC KEY-----
