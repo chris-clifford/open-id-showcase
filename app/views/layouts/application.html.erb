@@ -17,7 +17,9 @@
         <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
+                <% if session[:id_token] %>
                   <a class="nav-link" href="/logout">Sign Out</a>
+                <% end %>
               </li>
           </ul>
       </div>

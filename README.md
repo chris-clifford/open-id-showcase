@@ -1,24 +1,72 @@
-# README
+# Acceptto OpenID Connect Showcase Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  This repo contains a demo application that showcases Acceptto's OpenID Connect authentication feature.
 
-Things you may want to cover:
+### Installation
 
-* Ruby version
+To install you need the following:
 
-* System dependencies
+- [Ruby](https://www.ruby-lang.org/en/) 2.4.x
+- [PostgreSQL](https://www.postgresql.org/)
+- [Ruby on Rails](http://guides.rubyonrails.org/index.html) 5.1
 
-* Configuration
+Clone the latest version of the repository
 
-* Database creation
+- [Repository](https://github.com/chris-clifford/open-id-showcase)
 
-* Database initialization
+### Configuration
 
-* How to run the test suite
+Enter the Configuration setting in the following file:
 
-* Services (job queues, cache servers, search engines, etc.)
+  - config/url_parameters.yml
 
-* Deployment instructions
+  ```
+  production:
+    base_url: [Enter production Accepto server url e.g. acceptto.com]
+    client_id: [Enter client id for production]
+    client_secret: Enter client secret for production]
+    redirect_url: [Enter production base url of the this application]
+    public_key: [Enter public key for production]
+  development:
+    base_url: [Enter development Accepto server url e.g. acceptto.com]
+    client_id: [Enter client id for development]
+    client_secret: Enter client secret for development]
+    redirect_url: [Enter development base url of the this application]
+    public_key: [Enter public key for development]
+  ```
 
-* ...
+### Setup
+
+1. Start the postgresql server:
+
+  ```bash
+  $ postgres
+  ```
+
+2. Install gems, in the repo directory:
+
+  ```bash
+  $ bundle install
+  ```
+
+3. Create the database:
+
+  ```bash
+  $ rails db:create
+  ```
+
+4. Setup the database:
+
+  ```bash
+  $ rails db:setup
+  ```
+
+5. Run the start server script:
+
+  ```bash
+  $ rails serve
+  ```
+
+### Running the Application
+
+Launch your browser and navigate to localhost:3000

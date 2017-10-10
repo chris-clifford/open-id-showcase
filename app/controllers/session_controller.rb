@@ -1,14 +1,20 @@
 class SessionController < ApplicationController
   include SessionHelper
   def index
+    if current_user && session[:id_token]
+      @payload = session[:id_token]
+      return render :index
+    end
+
     if params[:code] && params[:state] == session[:state]
       request = HTTParty.post(get_auth_request_url(params[:code]))
 
       if request['id_token']
         verified_token = verify_token(request['id_token'])
         @payload = verified_token[0]
-        session[:id_token] = request['id_token']
+        session[:id_token] = verified_token[0]
         @user = User.find_or_create_by(email: @payload["sub"])
+        session[:user_id] = @user.id
       else
         redirect_to login_path, alert: 'There was an error getting your login information from Acceptto'
       end
@@ -30,9 +36,10 @@ class SessionController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      token = {header: {}, payload: {'iss': 'www.acceptto.com', sub: params[:email], exp: Time.now.to_i, iat: Time.now.to_i}}
-      @payload = token[:payload].with_indifferent_access
-      redirect_to '/'
+      token = {'iss': 'www.acceptto.com', sub: @user.email, exp: Time.now.to_i, iat: Time.now.to_i, new: true}
+      session[:id_token] = token
+      @payload = session[:id_token].with_indifferent_access
+      render :index
     else
       flash[:alert] = "There was a problem signing up."
       redirect_to '/login'
